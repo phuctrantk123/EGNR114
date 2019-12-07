@@ -27,3 +27,10 @@ Our group project, Alexa Latte, is an attempt to create a device which will disp
 |Adafruit motor hat	|M1 and M2|	Jumper wires|	-	|Mercury Stepper Motor|
 |Mercury Stepper Motor|	-	|Paracord or rope|	Knob	|Coffee carafe|
 #### Hardware Schematic:
+![](images/Picture1.png)
+
+#### Images:
+![]images/Picture2.png)
+![]images/Picture3.png)
+![]images/Picture4.png)
+![]images/Picture5.png)
