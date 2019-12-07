@@ -30,7 +30,7 @@ Our group project, Alexa Latte, is an attempt to create a device which will disp
 ![](images/Picture1.png)
 
 #### Images:
-![]images/Picture2.png)
-![]images/Picture3.png)
-![]images/Picture4.png)
-![]images/Picture5.png)
+![](images/Picture2.png)
+![](images/Picture3.png)
+![](images/Picture4.png)
+![](images/Picture5.png)
