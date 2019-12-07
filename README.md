@@ -34,3 +34,11 @@ Our group project, Alexa Latte, is an attempt to create a device which will disp
 ![](images/Picture3.png)
 ![](images/Picture4.png)
 ![](images/Picture5.png)
+#### Arduino Code:
+Our project does not require an Arduino to run. However, a list of how we set up the voice commands part will be provided:
+#### Python Code:
+#### Results:
+The coffee carafe will be turned on at user’s command. For example, when the user says: “Alexa, can I have a small coffee”, the motor will release the knob and pour 8 ounces of coffee in their mug. As for right now, there are 2 valid commands for this program: small or large.
+#### Future Work:
+As the problem indicated, this project is to serve as a gateway as to explore the possibility to control coffee machines remotely. There are many improvements that can be done in order to make this more practical, such as connecting the coffee device directly to the shop’s POS (Point of Sales) system, making the orders more efficient. Such device can also be used on milk or other beverages since consistency is very important for a coffee shop.
+
