@@ -35,10 +35,171 @@ Our group project, Alexa Latte, is an attempt to create a device which will disp
 ![](images/Picture4.png)
 ![](images/Picture5.png)
 #### Arduino Code:
-Our project does not require an Arduino to run. However, a list of how we set up the voice commands part will be provided:
+Our project does not require an Arduino to run. However, we have a JSON file instead for the coding of the alexa skill.
+```
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "my coffee machine",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "Alexa stop the coffee"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "CoffeeControl",
+                    "slots": [
+                        {
+                            "name": "coffee_size",
+                            "type": "coffee_size"
+                        },
+                        {
+                            "name": "coffee_type",
+                            "type": "coffee_type"
+                        }
+                    ],
+                    "samples": [
+                        "Alexa can I have a {coffee_size} {coffee_type} coffee from my coffee machine",
+                        "Alexa I want a {coffee_size} {coffee_type} coffee",
+                        "Alexa give me a cup of {coffee_size} {coffee_type} coffee",
+                        "Alexa give me a {coffee_size} {coffee_type} coffee",
+                        "I would like a {coffee_size} {coffee_type} coffee"
+                    ]
+                },
+                {
+                    "name": "AMAZON.PauseIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ResumeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.MoreIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateSettingsIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NextIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageUpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PreviousIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollRightIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollLeftIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollUpIntent",
+                    "samples": []
+                }
+            ],
+            "types": [
+                {
+                    "name": "coffee_size",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "large",
+                                "synonyms": [
+                                    "big",
+                                    "large size",
+                                    "twelve ounce",
+                                    "large-sized"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "small",
+                                "synonyms": [
+                                    "small sized",
+                                    "small size",
+                                    "eight ounce"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "coffee_type",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "cream",
+                                "synonyms": [
+                                    "milk coffee",
+                                    "coffee with some cream",
+                                    "coffee with half-and-half",
+                                    "not black coffee",
+                                    "coffee with cream"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "black",
+                                "synonyms": [
+                                    "pure coffee",
+                                    "coffee",
+                                    "just black coffee",
+                                    "coffee without cream",
+                                    "coffee with no cream"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
+```
 #### Python Code:
 #### Results:
 The coffee carafe will be turned on at user’s command. For example, when the user says: “Alexa, can I have a small coffee”, the motor will release the knob and pour 8 ounces of coffee in their mug. As for right now, there are 2 valid commands for this program: small or large.
 #### Future Work:
 As the problem indicated, this project is to serve as a gateway as to explore the possibility to control coffee machines remotely. There are many improvements that can be done in order to make this more practical, such as connecting the coffee device directly to the shop’s POS (Point of Sales) system, making the orders more efficient. Such device can also be used on milk or other beverages since consistency is very important for a coffee shop.
+#### License
+Copyright <2019> <Fangji Large>
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ 
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
