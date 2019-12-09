@@ -191,6 +191,77 @@ Our project does not require an Arduino to run. However, we have a JSON file ins
 }
 ```
 #### Python Code:
+###### Motor_control.py:
+```
+import logging
+import os
+
+from flask import Flask
+from flask_ask import Ask, statement, convert_errors, session
+import json
+import requests
+import RPi.GPIO as GPIO
+
+import time
+from adafruit_motorkit import MotorKit
+from adafruit_motor import stepper
+kit = MotorKit()
+from nob_config import small_black,large_black
+
+app = Flask(__name__)
+ask = Ask(app, '/')
+
+logging.getLogger("flask_ask").setLevel(logging.DEBUG)
+
+@ask.launch
+def launch():
+    return statement('coffee is ready')
+
+@ask.intent('CoffeeControl', mapping={'coffee_size':'coffee_size'})
+def motor_control(coffee_size):
+    if coffee_size in ['small']:
+        small_black()
+    
+    elif coffee_size in ['large']:
+        large_black()
+        
+    return statement('Heres a {} coffee, enjoy!'.format(coffee_size))
+ ```
+###### nob_config.py:
+```
+# nob_config.py
+# Alexa Latte Group
+
+# 2 functions
+
+def small_black():
+    import time
+    from adafruit_motorkit import MotorKit
+    from adafruit_motor import stepper
+    kit = MotorKit()
+    
+    for i in range (850):
+        kit.stepper1.onestep()
+    time.sleep(2.45)
+    for i in range(300):
+        kit.stepper1.onestep(direction=stepper.BACKWARD)
+
+    return None
+
+def large_black():
+    import time
+    from adafruit_motorkit import MotorKit
+    from adafruit_motor import stepper
+    kit = MotorKit()
+    
+    for i in range(1600):
+        kit.stepper1.onestep()
+    time.sleep(2.6)
+    for i in range(300):
+        kit.stepper1.onestep(direction=stepper.BACKWARD)
+
+    return None
+```
 #### Results:
 The coffee carafe will be turned on at user’s command. For example, when the user says: “Alexa, can I have a small coffee”, the motor will release the knob and pour 8 ounces of coffee in their mug. As for right now, there are 2 valid commands for this program: small or large.
 #### Future Work:
